@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <div class="container">
+        <h1>Your Profile</h1>
+        <div class="profile-info">
+            <p><strong>Username:</strong> {{ user_profile.username }}</p>
+            <p><strong>Email:</strong> {{ user_profile.email }}</p>
+            <!-- Add more profile information as needed -->
+        </div>
+    </div>
+{% endblock %}

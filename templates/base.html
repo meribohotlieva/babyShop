@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/baby_shop_logo.jpg' %}">
+    <title>BabyShop</title>
+    <style>
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    {% if request.user.is_authenticated %}
+     <nav>
+        <a href="{% url 'product_list' %}">Products</a>
+        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'view_cart' %}">Cart</a>
+    </nav>
+    {% else %}
+    <nav>
+        <a href="{% url 'product_list' %}">Products</a>
+        <a href="{% url 'register' %}">Register</a>
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'view_cart' %}">Cart</a>
+    </nav>
+    {% endif %}
+<main>
+    {% block main_content %}
+    {% endblock %}
+</main>
+
+<div class="footer">
+		<span class="footer-section">
+            Contacts:
+            +359 88 6741523
+            babyshop@info.com
+			© 2024 Baby Shop Website
+		</span>
+</div>
+
+</body>
+</html>

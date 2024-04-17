@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+    <title>Product Detail</title>
+<body>
+    {% for product in products %}
+        {% if product.id == product_id %}
+            {{ product.product_image }}
+            {{ product.product_name}}
+            {{ product.caption }}
+            {{ product.price }}
+        {% endif %}
+    {% endfor %}
+</body>
+
+{% endblock %}

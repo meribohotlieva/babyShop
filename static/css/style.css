@@ -1,0 +1,37 @@
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Light gray background */
+            color: #333; /* Dark gray text */
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #4CAF50; /* Green */
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            color: #fff; /* White text */
+        }
+
+        /* Main content */
+        .main-content {
+            text-align: center;
+            margin: 50px auto; /* Center the content horizontally */
+            padding: 20px;
+            background-color: #fff; /* White background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        }
+
+        /* Footer */
+        .footer, .navbar {
+            background-color: #333; /* Dark gray */
+            color: #fff; /* White text */
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
