@@ -3,42 +3,50 @@
 {% load static %}
 
 {% block main_content %}
+    <style>
+        h1 {
+            text-align: center;
+            font-size: 64px;
+        }
+        li img{
+            margin: auto;
+            display: block;
+            border-style: double;
+        }
+        li {
+            margin: 20px;
+            margin-outside: 100px;
+            text-align: center;
+        }
+        li a {
+            background-color: deepskyblue;
+            color: white;
+            padding: 5px;
+            border-radius: 10px;
+        }
+        ul {
+            margin-bottom: 100px;
+        }
+    </style>
 
     <title>Products</title>
     <h1>Products</h1>
-    <img src="{% static 'images/pampers.jpg' %}" alt="Pampers">
-    <h2>Baby Pampers</h2>
-    <p>29.99 lv. <button>Add To Cart</button></p>
 
-    <img src="{% static 'images/baby_bottle.jpg' %}" alt="BabyBottle">
-    <h2>Baby Bottle</h2>
-    <p>9.99 lv. <button>Add To Cart</button></p>
-
-    <img src="{% static 'images/baby_pacifier.jpg' %}" alt="Baby Pacifier">
-    <h2>Baby Pacifier</h2>
-    <p>6.99 lv. <button>Add To Cart</button></p>
-
-    <img src="{% static 'images/boy_set.jpg' %}" alt="BoySet">
-    <h2>Boy Set</h2>
-    <p>24.99 lv. <button>Add To Cart</button></p>
-
-    <img src="{% static 'images/girl_dress.jpg' %}" alt="GirlDress">
-    <h2>Girl Dress</h2>
-    <p>29.99 lv. <button>Add To Cart</button></p>
-
-    <img src="{% static 'images/baby_chair.jpg' %}" alt="BabyChair">
-    <h2>Baby Chair</h2>
-    <p>239.99 lv. <button>Add To Cart</button></p>
-
-    <img src="{% static 'images/baby_electric_swing.jpg' %}" alt="BabyElectricSwing">
-    <h2>Baby Electric Swing</h2>
-    <p>349.99 lv. <button>Add To Cart</button></p>
-    {% if products %}
-    <ul>
+    <ul class="product-list" type="none">
         {% for product in products %}
-            <li>{{ product.product_image }}</li>
-            <li>{{ product.product_name }}</li>
-            <li>${{ product.price }}</li>
+            <li class="product-item">
+                <img src="{{ product.product_image }}" alt="{{ product.name }}" width="200" height="150">
+                <h2>{{ product.product_name }}</h2>
+                <p>{{ product.caption }}</p>
+                <p>Price: ${{ product.price }}</p>
+                <a class="buy-now-button" href="{% url 'add_to_cart' product.id %}">Add to Cart</a>
+
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+
         {% endfor %}
     </ul>
     {% endif %}
