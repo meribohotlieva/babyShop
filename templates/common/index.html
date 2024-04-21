@@ -1,37 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>index</title>
-</head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
     <style>
-        nav {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
+          h1, p{
+              text-align: center;
+              font-size: 50px;
+          }
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
+          img{
+              width: 700px;
+              height: 500px;
+              display: block;
+              margin: auto;
+          }
+          .main-content{
+              margin: 50px;
+              background-color: navajowhite;
+          }
+
     </style>
-</head>
-<body>
-    <nav>
-        <a href="{% url 'product_list' %}">Products</a>
-        <a href="{% url 'register' %}">Register</a>
-        <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'view_cart' %}">Cart</a>
-    </nav>
-
+<div class="main-content">
     <h1>Welcome to the Baby Shop!</h1>
     <p>Explore our collection of baby products.</p>
+    <img src="{% static 'images/baby_shop_logo.jpg' %}">
+
+</div>
+{% endblock %}
 
 
 </body>
